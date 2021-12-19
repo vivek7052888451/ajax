@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get('home', [StudentControler::class,'index'])->name('home');
 Route::post('store', [StudentControler::class,'store'])->name('store');
+Route::get('cache', [StudentControler::class,'cache'])->name('cache');
 
 

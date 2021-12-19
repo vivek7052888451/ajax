@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Models\student;
 class StudentControler extends Controller
 {
@@ -26,5 +27,15 @@ class StudentControler extends Controller
 	   $students->save();
 	   //echo "data save";
 	   return redirect()->route('home');
+   }
+   public function Cache()
+   {
+	  //echo Cache::set("Item",student::all());
+	  //echo Cache::get('Item');
+	   //return  student::all();
+	   
+	  return $data=Cache::rememberForever('bigM',function(){
+		   return  student::all();
+	   });
    }
 }
